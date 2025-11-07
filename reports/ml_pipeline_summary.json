@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-11-07T18:13:24.061615",
+  "best_model": "Logistic Regression",
+  "best_accuracy": 0.257,
+  "models_trained": [
+    "Random Forest",
+    "Logistic Regression"
+  ],
+  "dataset_shape": [
+    5000,
+    33
+  ],
+  "features_used": 27
+}

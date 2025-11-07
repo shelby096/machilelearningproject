@@ -1,0 +1,43 @@
+training:
+  # Data paths
+  processed_data_path: "data/processed/processed_diet_data.csv"
+  model_save_path: "models/"
+  
+  # Training settings
+  random_state: 42
+  test_size: 0.2
+  validation_size: 0.2
+  
+  # Feature preprocessing
+  preprocessing:
+    handle_missing_values: true
+    encode_categorical: true
+    scale_numerical: true
+    remove_outliers: true
+    outlier_method: "iqr"  # or "zscore"
+    outlier_threshold: 1.5
+  
+  # Model training
+  models_to_train:
+    - "random_forest"
+    - "xgboost"
+    - "lightgbm"
+    - "logistic_regression"
+  
+  # Hyperparameter tuning
+  hyperparameter_tuning:
+    enabled: true
+    method: "grid_search"  # or "random_search"
+    cv_folds: 3
+    n_iter: 50  # for random search
+  
+  # Model persistence
+  save_models: true
+  save_preprocessors: true
+  save_metrics: true
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/training.log"

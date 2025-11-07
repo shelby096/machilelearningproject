@@ -1,0 +1,55 @@
+data:
+  raw_data_path: "data/raw/curadiet-g.csv"
+  interim_data_path: "data/interim/"
+  processed_data_path: "data/processed/"
+  
+  # Data validation rules
+  validation:
+    required_columns:
+      - "Patient_ID"
+      - "Age"
+      - "Gender"
+      - "Height_cm"
+      - "Weight_kg"
+      - "BMI"
+      - "Recommended_Meal_Plan"
+    
+    numeric_columns:
+      - "Age"
+      - "Height_cm"
+      - "Weight_kg"
+      - "BMI"
+      - "Blood_Pressure_Systolic"
+      - "Blood_Pressure_Diastolic"
+      - "Cholesterol_Level"
+      - "Blood_Sugar_Level"
+      - "Daily_Steps"
+      - "Exercise_Frequency"
+      - "Sleep_Hours"
+      - "Caloric_Intake"
+      - "Protein_Intake"
+      - "Carbohydrate_Intake"
+      - "Fat_Intake"
+      - "Recommended_Calories"
+      - "Recommended_Protein"
+      - "Recommended_Carbs"
+      - "Recommended_Fats"
+    
+    categorical_columns:
+      - "Gender"
+      - "Chronic_Disease"
+      - "Genetic_Risk_Factor"
+      - "Allergies"
+      - "Alcohol_Consumption"
+      - "Smoking_Habit"
+      - "Dietary_Habits"
+      - "Preferred_Cuisine"
+      - "Food_Aversions"
+      - "Recommended_Meal_Plan"
+
+  # Feature engineering settings
+  feature_engineering:
+    create_bmi_categories: true
+    create_age_groups: true
+    create_health_risk_score: true
+    normalize_numeric_features: true

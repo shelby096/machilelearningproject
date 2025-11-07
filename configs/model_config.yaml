@@ -1,0 +1,58 @@
+models:
+  # Target variable
+  target_column: "Recommended_Meal_Plan"
+  
+  # Feature selection
+  features_to_exclude:
+    - "Patient_ID"
+    - "Recommended_Calories"
+    - "Recommended_Protein"
+    - "Recommended_Carbs"
+    - "Recommended_Fats"
+  
+  # Model configurations
+  random_forest:
+    n_estimators: 100
+    max_depth: 10
+    min_samples_split: 5
+    min_samples_leaf: 2
+    random_state: 42
+  
+  xgboost:
+    n_estimators: 100
+    max_depth: 6
+    learning_rate: 0.1
+    subsample: 0.8
+    colsample_bytree: 0.8
+    random_state: 42
+  
+  lightgbm:
+    n_estimators: 100
+    max_depth: 6
+    learning_rate: 0.1
+    num_leaves: 31
+    random_state: 42
+  
+  logistic_regression:
+    max_iter: 1000
+    random_state: 42
+    solver: 'liblinear'
+
+# Model evaluation
+evaluation:
+  test_size: 0.2
+  validation_size: 0.2
+  random_state: 42
+  cv_folds: 5
+  
+  metrics:
+    - "accuracy"
+    - "precision"
+    - "recall"
+    - "f1"
+    - "roc_auc"
+
+# Model selection
+model_selection:
+  scoring_metric: "f1_weighted"
+  use_cross_validation: true
