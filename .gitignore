@@ -38,7 +38,6 @@ ENV/
 .env.production
 
 # Data files (keep structure, ignore large files)
-data/raw/*.csv
 data/raw/*.xlsx
 data/raw/*.json
 data/interim/*.csv
@@ -46,6 +45,7 @@ data/processed/*.csv
 !data/raw/.gitkeep
 !data/interim/.gitkeep
 !data/processed/.gitkeep
+!data/raw/curadiet-g.csv
 
 # Model files
 models/*.pkl
