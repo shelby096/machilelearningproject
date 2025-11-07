@@ -47,7 +47,7 @@ def load_model_and_preprocessors():
             import sys
             
             with st.spinner("Training ML models..."):
-                result = subprocess.run([sys.executable, 'run_pipeline.py'], 
+                result = subprocess.run([sys.executable, 'simple_train.py'], 
                                       capture_output=True, text=True)
                 
                 if result.returncode != 0:
