@@ -38,10 +38,29 @@ st.markdown("""
 def load_model_and_preprocessors():
     """Load the trained model and preprocessors."""
     try:
-        # Load the best model (Logistic Regression based on our pipeline results)
+        # Check if models exist, if not train them
+        if not os.path.exists('models/logistic_regression.joblib'):
+            st.info("🔄 Models not found. Training models now... This may take a few minutes.")
+            
+            # Run the training pipeline
+            import subprocess
+            import sys
+            
+            with st.spinner("Training ML models..."):
+                result = subprocess.run([sys.executable, 'run_pipeline.py'], 
+                                      capture_output=True, text=True)
+                
+                if result.returncode != 0:
+                    st.error(f"Training failed: {result.stderr}")
+                    return None, None
+                
+                st.success("✅ Models trained successfully!")
+        
+        # Load the trained models
         model = joblib.load('models/logistic_regression.joblib')
         preprocessors = joblib.load('models/preprocessors.joblib')
         return model, preprocessors
+        
     except Exception as e:
         st.error(f"Error loading model: {str(e)}")
         return None, None
