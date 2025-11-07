@@ -16,7 +16,7 @@ import joblib
 def simple_train():
     """Simple training function that works reliably."""
     try:
-        print("🔄 Starting simple training...")
+        print("🔄 Starting simple training... (v2)")
         
         # Create directories
         os.makedirs('models', exist_ok=True)
